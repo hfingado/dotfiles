@@ -204,12 +204,15 @@ bar {
 # set wallpaper for each monitor
 # --head=0 -> Primary
 # --head=1 -> Left Vertical
-exec_always nitrogen --head=0 --set-scaled /home/hunter/Pictures/amanda-edwardsen.jpg
-exec_always nitrogen --head=1 --set-scaled /home/hunter/Pictures/amanda-edwardsen-vertical.jpg
+exec_always --no-startup-id nitrogen --head=0 --set-scaled /home/hunter/Pictures/amanda-edwardsen.jpg
+exec_always --no-startup-id nitrogen --head=1 --set-scaled /home/hunter/Pictures/amanda-edwardsen-vertical.jpg
 
 # configure monitors using xrandr
-exec_always xrandr --output DP-0 --mode 1920x1200 --pos 0x0 --rotate left --output DP-1 --off --output HDMI-0 --off --output DP-2 --off --output DP-3 --off --output DP-4 --primary --mode 2560x1440 --pos 1200x0 --rotate normal --output DP-5 --off --output USB-C-0 --off
+exec xrandr --output DP-0 --mode 1920x1200 --pos 0x0 --rotate left --output DP-1 --off --output HDMI-0 --off --output DP-2 --off --output DP-3 --off --output DP-4 --primary --mode 2560x1440 --pos 1200x0 --rotate normal --output DP-5 --off --output USB-C-0 --off
 
 # start green with envy on startup
-exec flatpak run com.leinardi.gwe
+exec --no-startup-id flatpak run com.leinardi.gwe
 assign [class="Gwe"] 2
+
+# start compton
+exec_always --no-startup-id picom
