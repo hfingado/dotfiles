@@ -65,6 +65,9 @@ bindsym $mod+Return exec xfce4-terminal
 # start browser
 bindsym $mod+Shift+Return exec firefox
 
+# start file manager
+bindsym $mod+Shift+F exec thunar
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
